@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @SpringBootTest
 class ApplicationTests {
 
-	@Test
+	@Test //asdasdasd
 	void contextLoads() {
 		Note note = new Note(1, "Do", "some text in here", LocalDate.now(), LocalDate.now(), LocalDate.now(), "http://localhost:8080/notes", 1);
 
