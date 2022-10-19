@@ -18,6 +18,7 @@ public class NoteService {
     }
 
     public Note addNote(Note note) {
+        System.out.println(note);
         noteRepo.save(note);
         return note;
     }
