@@ -1,5 +1,6 @@
 package inteliij.pingpong.exercise.model;
 
+import java.net.URL;
 import java.time.LocalDate;
 
 public class Note {
@@ -10,10 +11,10 @@ public class Note {
     private LocalDate startDate;
     private LocalDate endDate;
     private LocalDate estmDate;
-    private String link;
+    private URL link;
     private int priority;
 
-    public Note(int id, String descr, String text, LocalDate startDate, LocalDate endDate, LocalDate estmDate, String link, int priority) {
+    public Note(int id, String descr, String text, LocalDate startDate, LocalDate endDate, LocalDate estmDate, URL link, int priority) {
         super();
         this.id = id;
         this.descr = descr;
@@ -73,11 +74,11 @@ public class Note {
         this.estmDate = estmDate;
     }
 
-    public String getLink() {
+    public URL getLink() {
         return link;
     }
 
-    public void setLink(String link) {
+    public void setLink(URL link) {
         this.link = link;
     }
 

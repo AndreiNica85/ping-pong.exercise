@@ -3,6 +3,8 @@ package inteliij.pingpong.exercise.service;
 import inteliij.pingpong.exercise.model.Note;
 import org.springframework.stereotype.Service;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,11 @@ public class NoteService {
     static int counter = 0;
 
     static {
-        notes.add(new Note(++counter, "Do java !!!", "some text in here", LocalDate.now(), LocalDate.now(), LocalDate.now(), "http://localhost:8080/notes", 1));
+        try {
+            notes.add(new Note(++counter, "Do java !!!", "some text in here", LocalDate.now(), LocalDate.now(), LocalDate.now(), new URL("http://localhost:8080/notes"), 1));
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public List<Note> getAllNotes() {
