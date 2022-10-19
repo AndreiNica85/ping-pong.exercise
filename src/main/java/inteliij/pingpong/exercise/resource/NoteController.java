@@ -1,14 +1,13 @@
 package inteliij.pingpong.exercise.resource;
 
+import inteliij.pingpong.exercise.exception.NoteNotFoundException;
 import inteliij.pingpong.exercise.model.Note;
 import inteliij.pingpong.exercise.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class NoteController {
@@ -21,9 +20,20 @@ public class NoteController {
         return ns.getAllNotes();
     }
 
+    @GetMapping("/notes/{id}")
+    public Note getNote(@PathVariable Integer id){
+        Optional<Note> searchResult =  ns.findNoteById(id);
+        if (searchResult.isEmpty()) {
+            throw new NoteNotFoundException("Note not found!");
+        }
+        else{
+            return searchResult.get();
+        }
+    }
     @PostMapping("/notes")
     public void createNote(@RequestBody Note note){
-        System.out.println(note);
         ns.addNote(note);
     }
+
+
 }
