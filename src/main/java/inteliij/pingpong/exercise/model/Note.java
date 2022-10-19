@@ -1,17 +1,30 @@
 package inteliij.pingpong.exercise.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.net.URL;
 import java.time.LocalDate;
 
+@Entity
 public class Note {
-
+    @Id
+    @JsonProperty("Id:")
     private int id;
+    @JsonProperty("Description:")
     private String descr;
+    @JsonProperty("Text content:")
     private String text;
+    @JsonProperty("Starting date:")
     private LocalDate startDate;
+    @JsonProperty("Ending date:")
     private LocalDate endDate;
+    @JsonProperty("Ending date:")
     private LocalDate estmDate;
+    @JsonProperty("URL:")
     private URL link;
+    @JsonProperty("Priority:")
     private int priority;
 
     public Note(int id, String descr, String text, LocalDate startDate, LocalDate endDate, LocalDate estmDate, URL link, int priority) {
