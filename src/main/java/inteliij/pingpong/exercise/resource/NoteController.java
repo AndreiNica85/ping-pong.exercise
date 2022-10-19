@@ -47,13 +47,15 @@ public class NoteController {
     }
 
     @PutMapping("/notes/{id}")
-    public Note updateNote(@PathVariable Integer id){
+    public Note updateNote(@RequestBody Note note, @PathVariable Integer id){
         Optional<Note> searchResult =  ns.findNoteById(id);
         if (searchResult.isEmpty()) {
             throw new NoteNotFoundException("Note not found!");
         }
         else{
-            return ns.updateNote(searchResult.get());
+            System.out.println(searchResult.get());
+            return null;
+
         }
     }
 
