@@ -17,7 +17,6 @@ class ApplicationTests {
 	void contextLoads() throws MalformedURLException {
 
 		Note note = new Note(1, "Do", "some text in here", LocalDate.now(), LocalDate.now(), LocalDate.now(), "http://localhost:8080/notes", 1);
-
 		Assert.isNull(null, note.getDescr());
 	}
 
@@ -40,5 +39,11 @@ class ApplicationTests {
 		assertThat(webLink, webLink.contains("localhost"));
 		assertThat(emailLink, emailLink.contains("@"));
 		assertThat(youtubeLink, youtubeLink.contains("youtube"));
+	}
+
+	@Test
+	void testDate() throws MalformedURLException {
+		Note note = new Note(1, "Do", "some text in here", LocalDate.of(1985,12,24), LocalDate.now(), LocalDate.now(),"http://localhost:8080/notes", 1);
+		Assert.isTrue(note.getEstmDate().isAfter(note.getStartDate()),"Estimated date cannot be smaller than creation date");
 	}
 }
