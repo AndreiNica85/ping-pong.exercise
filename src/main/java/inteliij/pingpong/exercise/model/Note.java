@@ -104,8 +104,7 @@ public class Note {
 
     @Override
     public String toString() {
-        return "Note [id=" + id + ", descr=" + descr + ", text=" + text + ", startDate=" + startDate + ", endDate="
-                + endDate + ", estmDate=" + estmDate + ", link=" + link + ", priority=" + priority + "]";
+        return "Note [id=" + id + ", descr=" + descr + ", text=" + text + ", startDate=" + startDate + ", endDate=" + endDate + ", estmDate=" + estmDate + ", link=" + link + ", priority=" + priority + "]";
     }
 
 }
