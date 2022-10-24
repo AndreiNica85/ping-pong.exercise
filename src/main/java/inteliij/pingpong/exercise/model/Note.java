@@ -12,6 +12,7 @@ import java.time.LocalDate;
 
 @Entity
 public class Note {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

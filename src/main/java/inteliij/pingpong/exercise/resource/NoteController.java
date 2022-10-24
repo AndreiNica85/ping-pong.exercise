@@ -15,8 +15,8 @@ public class NoteController {
     @Autowired
     private NoteService ns;
 
-    @GetMapping("/notes")
-    public List<Note> retriveNotes(){
+    @RequestMapping("/notes")
+    public List<Note> retrieveNotes(){
         return ns.getAllNotes();
     }
 
@@ -42,6 +42,7 @@ public class NoteController {
         }
     }
     @PostMapping("/notes")
+
     public void createNote(@RequestBody Note note){
         ns.addNote(note);
     }
